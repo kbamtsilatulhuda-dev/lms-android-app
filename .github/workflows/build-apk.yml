@@ -25,12 +25,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Initialize Capacitor and Android Environment
+      - name: Initialize Project and Install Capacitor
+        # Menambahkan inisialisasi npm otomatis dan paket core capacitor
         run: |
-          npm install @capacitor/android
+          npm init -y
+          npm install @capacitor/core @capacitor/cli @capacitor/android
           npx cap init "LMS Apps" "com.instansi.lmsapp" --web-dir www --force
           npx cap add android
           npx cap sync
